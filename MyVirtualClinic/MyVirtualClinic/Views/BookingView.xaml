@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:myVirtualClinic="clr-namespace:MyVirtualClinic;assembly=MyVirtualClinic" 
+             x:Class="MyVirtualClinic.BookingView">
+  
+  <ContentView.BindingContext>
+    <myVirtualClinic:BookingViewViewModel />
+  </ContentView.BindingContext>
+
+  <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />-->
+  <StackLayout>
+
+    <Label Text="You are scheduled to attend clinic on Tuesday 5th May at 3:10pm. If this appointment is suitable, press Confirm" VerticalOptions="Center"
+             HorizontalOptions="Start" />
+    <Button Text="Confirm"  HorizontalOptions="Center"/>
+
+    <Label Text="If you cannot attend this appointment, select an alternative from the following options. Appointment options are within the period recommended by your consultant" VerticalOptions="Center"
+             HorizontalOptions="Start" />
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Text="Tuesday 5th May at 1:10pm"  VerticalOptions="Center"
+               HorizontalOptions="Start"
+             Grid.Row="0" Grid.Column="0"/>
+      <Switch Grid.Row="0" Grid.Column="1" /> 
+      <Label Text="Tuesday 5th May at 3:10pm"
+             VerticalOptions="Center"
+               HorizontalOptions="Start"
+             Grid.Row="1"  Grid.Column="0"
+             />
+      <Switch IsToggled="True" Grid.Row="1"  Grid.Column="1" />
+      <Label Text="Thursday 7th May at 3:20pm"  VerticalOptions="Center"
+               HorizontalOptions="Start"
+             Grid.Row="2" Grid.Column="0" />
+      <Switch   Grid.Row="2" Grid.Column="1" />
+      <Label Text="Monday 11th May at 11:40am"  VerticalOptions="Center"
+               HorizontalOptions="Start"
+              Grid.Row="3" Grid.Column="0"/>
+      <Switch  Grid.Row="3" Grid.Column="1" />
+    </Grid>
+    
+    <Label Text="If you no longer wish to attend clinic, press Self-Discharge"
+           VerticalOptions="Center"
+             HorizontalOptions="Start" />
+    <Button Text="Self-Discharge"    HorizontalOptions="Center" />
+  </StackLayout>
+
+</ContentView>

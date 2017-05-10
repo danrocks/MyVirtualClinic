@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:myVirtualClinic="clr-namespace:MyVirtualClinic;assembly=MyVirtualClinic"              
+             xmlns:Behaviours="clr-namespace:MyVirtualClinic.Behaviours;assembly=MyVirtualClinic"  
+             xmlns:myVirtualClinicConverters="clr-namespace:MyVirtualClinic.Converters;assembly=MyVirtualClinic"   
+             x:Class="MyVirtualClinic.UserDetails"             
+             Title="User Details">
+    <ContentView.BindingContext>
+        <myVirtualClinic:UserDetailsViewModel />
+    </ContentView.BindingContext>
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <myVirtualClinicConverters:ValidEmailToColorConverter x:Key="cnvEmailValidToColor">
+            </myVirtualClinicConverters:ValidEmailToColorConverter>
+
+            <Style x:Key="MyEmailStyle" TargetType="Entry">
+                <Style.Triggers>
+
+                    <DataTrigger TargetType="Entry" 
+                         Binding="{Binding Source{x:Reference EmailEntry},  Path=Text.Length}"
+                                                            Value="0">
+                        <Setter Property="BackgroundColor" Value="Red" />
+                    </DataTrigger>
+
+                </Style.Triggers>
+                
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <!--<ScrollView>
+    <StackLayout Padding="10">
+      <Label Text="ContentPage" FontSize="40"/>
+      <Label Text="ContentPage is the simplest type of page."/>
+      <Label Text="The content of the ContentPage is generally a layout of some sort that can be a parent to multiple children."/>
+      <Label Text="This contant page contains a StackLayout, which in turn contains a few Label views (including the large one on the top and an example of handling click commands and data binding to a Label below)."/>
+      <Button Text="Click Me" Command="{Binding IncreaseCountCommand}"/>
+      <Label Text="{Binding CountDisplay}"/>
+    </StackLayout>
+  </ScrollView>-->
+    <StackLayout Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="User email" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+
+            <Entry x:Name="EmailEntry"  Text="{Binding Path=Email, StringFormat='{0}'}" 
+                 BackgroundColor="{Binding Source={x:Reference validEmail}, Path=IsValid, Converter={StaticResource cnvEmailValidToColor} }" 
+                Style="{StaticResource MyEmailStyle}"
+                   Placeholder="email" Grid.Row="0" Grid.Column="1" VerticalOptions="Start">
+                <!--                     -->
+                    <!--<Entry.Triggers>-->
+                    <!--<MultiTrigger  TargetType="Entry" >
+                        <MultiTrigger.Conditions>
+
+                            <BindingCondition Binding="{Binding Source{x:Reference EmailEntry}  Path=Text.Length}"
+                                              Value="0"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="BackgroundColor" Value="#00FF00" />
+                    </MultiTrigger>-->
+
+                <!--</Entry.Triggers>-->
+                <Entry.Behaviors>
+                    <Behaviours:ValidEmailBehaviour x:Name="validEmail" />
+                </Entry.Behaviors>
+            </Entry>
+                
+            <Label Text="Password" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"  HorizontalOptions="StartAndExpand"/>
+            <Entry Text="{Binding  Path=Password, StringFormat='{0}'}" IsPassword="True" Placeholder="password" Grid.Row="1" Grid.Column="1" VerticalOptions="Start"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyVirtualClinic"
+             x:Class="MyVirtualClinic.MainPage"
+             Title="MyVirtualClinic"
+             x:Name="MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings"
+                          Order="Primary"
+                     Clicked="ToolbarItem_Clicked">
+        <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            iOS="ic_menu.png"
+                            Android="ic_menu_black_24dpi"
+                            WinPhone="Images/feature.settings.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+  <StackLayout>
+        <local:PersonView x:Name="personView"  VerticalOptions="Start"
+           HorizontalOptions="StartAndExpand" />
+        <local:CameraView x:Name="camView" VerticalOptions="StartAndExpand"
+           HorizontalOptions="Center" />
+        <local:UploadView x:Name="uploadView" VerticalOptions="Start"
+           HorizontalOptions="Center" />
+    </StackLayout>
+
+  <!--<ContentPage.ToolbarItems>
+    <ToolbarItem Text="dan command" Order="Secondary" />
+  </ContentPage.ToolbarItems>-->
+</ContentPage>
