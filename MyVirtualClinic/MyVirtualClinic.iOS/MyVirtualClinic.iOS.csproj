@@ -50,8 +50,6 @@
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
-    <MtouchUseSGen>False</MtouchUseSGen>
-    <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <OptimizePNGs>True</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -241,7 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyVirtualClinic\MyVirtualClinic.csproj">
-      <Project>{0e9d388c-7964-484a-9709-3dce1abf1aa5}</Project>
+      <Project>{B5243255-15A1-468E-9B6D-1A6F8A3EE478}</Project>
       <Name>MyVirtualClinic</Name>
     </ProjectReference>
   </ItemGroup>

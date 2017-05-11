@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MyVirtualClinic.Models;assembly=MyVirtualClinic"
@@ -8,8 +8,12 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <!--<sys:DateTime x:Key="maxDob" x:FactoryMethod="Now"/>-->
-          
-        </ResourceDictionary>
+          	<!-- Implicit style -->
+			<Style TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="End"  />
+				<!--<Setter Property="BackgroundColor" Value="Red"  />-->
+			</Style>
+		</ResourceDictionary>
     </ContentView.Resources>
 
     <ContentView.BindingContext>
@@ -27,31 +31,21 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="End"
-                   Text="First Name" />
+			
+            <Label Grid.Row="0" Grid.Column="0" Text="First Name" />
             <Entry x:Name="FirstName" Grid.Row="0" Grid.Column="1" 
-               Text="{Binding  Path=FirstName,StringFormat='{0}'}" ></Entry>
-            <Label Grid.Row="1" Grid.Column="0"  HorizontalOptions="End">
-                <Label.Text>Surname</Label.Text>
-            </Label>
+               Text="{Binding  Path=FirstName,StringFormat='{0}'}" />
+			
+            <Label Grid.Row="1" Grid.Column="0" Text="Surname" />
             <Entry x:Name="SurName" Grid.Row="1" Grid.Column="1" 
                    Text="{Binding  Path=LastName,StringFormat='{0}'}"></Entry>
-            <Label Grid.Row="2" Grid.Column="0"  HorizontalOptions="End">
-                <Label.Text>Date of Birth</Label.Text>
-            </Label>
+
+			<Label Grid.Row="2" Grid.Column="0"  Text="Date of Birth"/>			
             <DatePicker x:Name="DobPicker" Grid.Row="2" Grid.Column="1"  Date="{Binding  Path=Dob}" >
                 <DatePicker.Format>dd MMM yyyy</DatePicker.Format>
                 <!--<DatePicker.MaximumDate Date="{StaticResource maxDob}" />-->
             </DatePicker>
-                    <!--<Entry x:Name="DateOfBirth" Grid.Row="2" Grid.Column="1"></Entry>-->
-        </Grid>
-        <!--<StackLayout HorizontalOptions="StartAndExpand" BackgroundColor="Red" >
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
-            </StackLayout>
-            <StackLayout  Orientation="Horizontal" HorizontalOptions="Start" >
-            </StackLayout>
-         </StackLayout>-->
+
+		</Grid>
   </ContentView.Content>
 </ContentView>
