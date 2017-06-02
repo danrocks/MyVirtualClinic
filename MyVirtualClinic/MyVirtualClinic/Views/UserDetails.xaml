@@ -76,5 +76,7 @@
             <Label Text="Password" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"  HorizontalOptions="StartAndExpand"/>
             <Entry Text="{Binding  Path=Password, StringFormat='{0}'}" IsPassword="True" Placeholder="password" Grid.Row="1" Grid.Column="1" VerticalOptions="Start"/>
         </Grid>
+
+        <Label x:Name="NetworkState"></Label>
     </StackLayout>
 </ContentPage>

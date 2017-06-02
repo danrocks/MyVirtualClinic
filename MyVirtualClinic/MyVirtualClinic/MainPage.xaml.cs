@@ -18,9 +18,9 @@ namespace MyVirtualClinic
             Padding = new Thickness(5,Device.OnPlatform(25,0,0),5,5);
             //PageImageSources = camView.GetPictures();
 
-            ((UploadViewModel)uploadView.BindingContext).decoratedMediaFiles= camView.GetPictures();
-            ((UploadViewModel)uploadView.BindingContext).Person = personView.GetPerson();
-            
+             ((UploadViewModel)uploadView.BindingContext).decoratedMediaFiles= camView.GetPictures();
+             ((UploadViewModel)uploadView.BindingContext).Person = personView.GetPerson();
+
         }
 
         ObservableCollection<ImageSource> PageImageSources = new ObservableCollection<ImageSource>();

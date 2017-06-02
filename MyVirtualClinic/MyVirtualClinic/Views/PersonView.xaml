@@ -19,6 +19,7 @@
     <ContentView.BindingContext>
         <myVirtualClinic:PersonViewModel />
     </ContentView.BindingContext>
+    
 <ContentView.Content >
     <!--<Grid Padding="5" BindingContext="{StaticResource personModel}}">-->
     <Grid Padding="5" >        

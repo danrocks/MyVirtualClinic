@@ -32,6 +32,7 @@ namespace MyVirtualClinic
         public Person(bool UseCurrentProperties) {
             if (UseCurrentProperties) {
                 Initialise();
+                
             }           
         }
 

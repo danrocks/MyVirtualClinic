@@ -5,11 +5,12 @@
              x:Class="MyVirtualClinic.MainPage"
              Title="MyVirtualClinic"
              x:Name="MainPage">
+ 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Settings"
                           Order="Primary"
                      Clicked="ToolbarItem_Clicked">
-        <ToolbarItem.Icon>
+            <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="ic_menu.png"
                             Android="ic_menu_black_24dpi"
@@ -17,7 +18,8 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-  <StackLayout>
+    
+    <StackLayout>
         <local:PersonView x:Name="personView"  VerticalOptions="Start"
            HorizontalOptions="StartAndExpand" />
         <local:CameraView x:Name="camView" VerticalOptions="StartAndExpand"
@@ -26,7 +28,4 @@
            HorizontalOptions="Center" />
     </StackLayout>
 
-  <!--<ContentPage.ToolbarItems>
-    <ToolbarItem Text="dan command" Order="Secondary" />
-  </ContentPage.ToolbarItems>-->
 </ContentPage>
